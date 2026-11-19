@@ -1,0 +1,93 @@
+/* Sunset Cover Studio — dark neon editor theme. System type only. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #14101f;
+  color: #f3eefc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.masthead { padding: 20px 28px 4px; }
+.masthead h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+  background: linear-gradient(90deg, #ff9a3d, #ff5e7a, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.masthead p { margin: 0; color: #b9aecf; max-width: 640px; }
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  padding: 18px 28px 28px;
+  align-items: start;
+}
+.controls section {
+  background: #1e1830;
+  border: 1px solid #352b52;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.controls h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffb86b;
+}
+.field-label { display: block; margin: 10px 0 4px; font-size: 13px; color: #d9d0ea; }
+.hint { color: #9d92b8; font-size: 13px; line-height: 1.45; }
+.panel-label { font-weight: 700; margin: 4px 0; }
+input[type="text"], select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #4a3f6b;
+  background: #171226;
+  color: #f3eefc;
+  font-size: 14px;
+}
+input[type="file"] { width: 100%; font-size: 13px; color: #d9d0ea; }
+input[type="range"] { width: 100%; accent-color: #ff5e7a; }
+.button-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+button {
+  padding: 9px 13px;
+  border-radius: 9px;
+  border: 1px solid #4a3f6b;
+  background: #2a2144;
+  color: #f3eefc;
+  font-size: 13px;
+  cursor: pointer;
+}
+button:hover { background: #372c58; }
+button.active { background: #ff5e7a; border-color: #ff5e7a; color: #fff; }
+button.export {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff9a3d, #ff5e7a);
+  border: none;
+}
+.stage { text-align: center; }
+.stage canvas {
+  max-width: 100%;
+  max-height: calc(100vh - 140px);
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  background: #171226;
+}
+/* Cover-only scene: hide every control, centre the poster. */
+body.shot-cover { background: #171226; overflow: hidden; }
+body.shot-cover .masthead,
+body.shot-cover .controls,
+body.shot-cover .stage .hint { display: none; }
+body.shot-cover .layout { display: block; padding: 0; }
+body.shot-cover .stage { display: flex; align-items: center; justify-content: center; height: 100vh; }
+body.shot-cover .stage canvas { max-height: 100vh; max-width: 100vw; box-shadow: none; cursor: default; }

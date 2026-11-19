@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Cover Studio — GTA-style cover art maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <h1>Sunset Cover Studio</h1>
+  <p>Turn your photo into GTA-style poster cover art. Your photos never leave this machine — everything runs offline in this page.</p>
+</header>
+<div class="layout">
+  <aside class="controls" id="controls">
+    <section>
+      <h2>1 · Photos</h2>
+      <label class="field-label" for="photoInput">Add your photos</label>
+      <input id="photoInput" type="file" accept="image/*" multiple>
+      <div class="button-row">
+        <button id="samplePier" type="button">Sample: Pier</button>
+        <button id="sampleBlvd" type="button">Sample: Boulevard</button>
+      </div>
+      <div class="button-row">
+        <button id="fillBtn" type="button">Fill every panel</button>
+        <button id="shuffleBtn" type="button">Shuffle crops</button>
+      </div>
+      <p class="hint" id="photoCount">0 photos loaded.</p>
+    </section>
+    <section>
+      <h2>2 · Selected panel</h2>
+      <p class="hint">Click a panel in the preview to select it, then adjust it here.</p>
+      <p class="panel-label" id="panelLabel">Panel 1 of 8</p>
+      <label class="field-label" for="panelPhoto">Photo in this panel</label>
+      <select id="panelPhoto"></select>
+      <label class="field-label" for="zoomRange">Zoom <span id="zoomValue">1.00×</span></label>
+      <input id="zoomRange" type="range" min="1" max="2.5" step="0.05" value="1">
+      <label class="field-label" for="panXRange">Move left / right <span id="panXValue">0</span></label>
+      <input id="panXRange" type="range" min="-100" max="100" step="1" value="0">
+      <label class="field-label" for="panYRange">Move up / down <span id="panYValue">0</span></label>
+      <input id="panYRange" type="range" min="-100" max="100" step="1" value="0">
+    </section>
+    <section>
+      <h2>3 · Words</h2>
+      <label class="field-label" for="titleInput">Title</label>
+      <input id="titleInput" type="text" maxlength="28" value="Sunset Heist">
+      <label class="field-label" for="taglineInput">Tagline</label>
+      <input id="taglineInput" type="text" maxlength="42" value="A night in the city">
+      <label class="field-label" for="titleScale">Title size <span id="titleScaleValue">1.00×</span></label>
+      <input id="titleScale" type="range" min="0.7" max="1.4" step="0.05" value="1">
+    </section>
+    <section>
+      <h2>4 · Look &amp; size</h2>
+      <div class="button-row" role="group" aria-label="Colour grade">
+        <button type="button" data-grade="sunset" class="active">Sunset</button>
+        <button type="button" data-grade="neon">Neon Night</button>
+        <button type="button" data-grade="golden">Golden Hour</button>
+      </div>
+      <div class="button-row" role="group" aria-label="Post size">
+        <button type="button" data-size="1080x1080" class="active">1080 × 1080</button>
+        <button type="button" data-size="1080x1350">1080 × 1350</button>
+        <button type="button" data-size="1920x1080">1920 × 1080</button>
+      </div>
+      <button id="exportBtn" type="button" class="export">Export PNG</button>
+      <p class="hint" id="statusLine">Pick a photo, then export your cover.</p>
+    </section>
+  </aside>
+  <main class="stage">
+    <canvas id="coverCanvas" width="1080" height="1080"></canvas>
+    <p class="hint">Live preview — click any panel to select it.</p>
+  </main>
+</div>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
